@@ -1,0 +1,23 @@
+{
+  "main": "index.html",
+  "name": "leapkeys",
+  "description": "Send arrow key strokes from Leap Motion",
+  "version": "0.0.1",
+  "keywords": [ "node-webkit" ],
+  "main": "index.js",
+  "window": {
+    "title": "Leap Motion",
+    "toolbar": true,
+    "frame": false,
+    "width": 800,
+    "height": 500,
+    "position": "mouse",
+    "min_width": 400,
+    "min_height": 200,
+    "max_width": 800,
+    "max_height": 600
+  },
+  "dependencies": {
+    "leapjs": "0.2.0"
+  }
+}
