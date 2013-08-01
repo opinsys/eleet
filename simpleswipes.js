@@ -85,21 +85,23 @@ SimpleSwipes.prototype.handleSwipe = function(gesture) {
 
 SimpleSwipes.prototype.handleSwipeStop = function(gesture) {
 
-    var xdiff = this.start.position[0] - gesture.position[0];
-    var ydiff = this.start.position[1] - gesture.position[1];
+    var event = {
+        x: this.start.position[0] - gesture.position[0],
+        y: this.start.position[1] - gesture.position[1]
+    };
 
-    if (isSmall(xdiff) && isSmall(ydiff)) {
-        console.warn("too small movement");
+    if (isSmall(event.x) && isSmall(event.y)) {
+        console.warn("too small movement", event);
         return this.end();
     }
 
-    if (Math.abs(xdiff) > Math.abs(ydiff)) {
-        if (xdiff < 0) this.emit("left");
-        else this.emit("right");
+    if (Math.abs(event.x) > Math.abs(event.y)) {
+        if (event.x < 0) this.emit("left", event);
+        else this.emit("right", event);
     }
     else {
-        if (ydiff > 0) this.emit("up");
-        else this.emit("down");
+        if (event.y > 0) this.emit("up", event);
+        else this.emit("down", event);
     }
 
     this.end();
