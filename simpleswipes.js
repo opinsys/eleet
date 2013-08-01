@@ -1,6 +1,5 @@
 var util = require("util");
 var EventEmitter = require("events").EventEmitter;
-var _ = require("underscore");
 
 function isSmall(i) {
     return Math.abs(i) < 10;
@@ -20,7 +19,19 @@ function SimpleSwipes(controller) {
     EventEmitter.call(this);
     this.controller = controller;
 
-    this.emit = _.throttle(this.emit, 500);
+    var origEmit = this.emit;
+    var pause = false;
+    this.emit = function() {
+        if (pause) {
+            console.log("ignoring", arguments);
+            return;
+        }
+        origEmit.apply(this, arguments);
+        pause = true;
+        setTimeout(function() {
+            pause = false;
+        }, 1000);
+    };
 
     this.start = null;
     this.lastUpdate = null;
