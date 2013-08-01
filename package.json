@@ -18,6 +18,7 @@
     "max_height": 600
   },
   "dependencies": {
-    "leapjs": "0.2.0"
+    "leapjs": "0.2.0",
+    "underscore": "~1.5.1"
   }
 }
