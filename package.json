@@ -1,10 +1,11 @@
 {
-  "main": "index.html",
+  "main": "index.js",
   "name": "leapkeys",
   "description": "Send arrow key strokes from Leap Motion",
   "version": "0.0.1",
-  "keywords": [ "node-webkit" ],
-  "main": "index.js",
+  "keywords": [
+    "node-webkit"
+  ],
   "window": {
     "title": "Leap Motion",
     "toolbar": true,
