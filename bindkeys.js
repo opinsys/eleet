@@ -20,7 +20,5 @@ module.exports = function(ss) {
     }).on("point", function() {
         console.log("point");
         exec("xdotool key KP_Enter");
-
     });
-
 };
