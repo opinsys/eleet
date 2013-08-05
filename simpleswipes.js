@@ -18,8 +18,8 @@ function isSmall(i) {
 function SimpleSwipes(controller) {
     EventEmitter.call(this);
     this.controller = controller;
-    this.swapX = 1;
-    this.swapY = 1;
+    this._swapX = 1;
+    this._swapY = 1;
 
     var origEmit = this.emit;
     var pause = false;
@@ -61,11 +61,11 @@ function SimpleSwipes(controller) {
 util.inherits(SimpleSwipes, EventEmitter);
 
 SimpleSwipes.prototype.swapX = function(swap) {
-    this.swapX = swap ? -1 : 1;
+    this._swapX = swap ? -1 : 1;
 };
 
 SimpleSwipes.prototype.swapY = function(swap) {
-    this.swapY = swap ? -1 : 1;
+    this._swapY = swap ? -1 : 1;
 };
 
 SimpleSwipes.prototype.handleSwipe = function(gesture) {
@@ -106,11 +106,11 @@ SimpleSwipes.prototype.handleSwipeStop = function(gesture) {
     }
 
     if (Math.abs(event.x) > Math.abs(event.y)) {
-        if (event.x * this.swapX < 0) this.emit("left", event);
+        if (event.x * this._swapX < 0) this.emit("left", event);
         else this.emit("right", event);
     }
     else {
-        if (event.y * this.swapX > 0) this.emit("up", event);
+        if (event.y * this._swapY > 0) this.emit("up", event);
         else this.emit("down", event);
     }
 
