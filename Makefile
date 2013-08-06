@@ -1,5 +1,10 @@
 
-
+exec_prefix = $(prefix)
+bindir = $(exec_prefix)/bin
+datarootdir = $(prefix)/share
+INSTALL = install
+INSTALL_PROGRAM = $(INSTALL)
+INSTALL_DATA = $(INSTALL) -m 644
 
 export PATH := node_modules/.bin:$(PATH)
 
@@ -15,5 +20,23 @@ define nw-build
 endef
 
 
+build: npm-install nw-gyp
+
+npm-install:
+	npm install
+
 nw-gyp:
 	$(call nw-build,leapjs/node_modules/ws)
+
+install-dirs:
+	mkdir -p $(DESTDIR)$(bindir)
+	mkdir -p $(DESTDIR)$(datarootdir)/applications
+	mkdir -p $(DESTDIR)/usr/share/icons
+	mkdir -p $(DESTDIR)/opt/eleet
+
+install: install-dirs
+	cp -r lib node_modules bin *.js *.json *.md *.html $(DESTDIR)/opt/eleet
+	$(INSTALL_DATA) -t $(DESTDIR)$(datarootdir)/applications eleet.desktop
+	$(INSTALL_DATA) -t $(DESTDIR)/usr/share/icons assets/eleet.png
+	$(INSTALL_PROGRAM) -t $(DESTDIR)$(bindir) bin/eleet
+

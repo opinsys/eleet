@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Eleet
+Comment=Eleet - Leap Motion
+Exec=eleet
+Terminal=false
+Type=Application
+Icon=eleet
+Categories=Utility;
