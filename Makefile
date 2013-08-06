@@ -32,7 +32,7 @@ nw-gyp:
 install-dirs:
 	mkdir -p $(DESTDIR)$(bindir)
 	mkdir -p $(DESTDIR)$(datarootdir)/applications
-	mkdir -p $(DESTDIR)/usr/share/icons
+	mkdir -p $(DESTDIR)/usr/share/pixmaps
 	mkdir -p $(DESTDIR)/opt/eleet
 
 install: install-dirs
