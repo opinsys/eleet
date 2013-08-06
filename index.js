@@ -1,9 +1,11 @@
 
 var gui = require("nw.gui");
 var Window = gui.Window.get();
-Window.showDevTools();
-var Leap = require("leapjs");
+if (gui.App.argv.indexOf("--devtools") !== -1) {
+   Window.showDevTools();
+}
 
+var Leap = require("leapjs");
 var bindKeys = require("./lib/bindkeys");
 var bindPreview = require("./lib/bindpreview");
 var bindOptions = require("./lib/bindoptions");
@@ -43,7 +45,6 @@ bindKeys(ss);
 bindPreview(ss);
 bindOptions(ss);
 
-Window.showDevTools();
 
 
 
