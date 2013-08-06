@@ -1,5 +1,8 @@
 
-# leapkeys
+
+<img src="https://raw.github.com/opinsys/eleet/master/assets/icon.png" height=100>
+
+# Eleet
 
 Bind simple [Leap Motion][] swipe gestures to arrow key strokes. This can be
 used to control Libre Office Impress presentations for example. Designed for
