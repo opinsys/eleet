@@ -1,0 +1,73 @@
+
+html {
+    font-family: Arial;
+    background-color: #e7e4d0;
+}
+
+
+.content {
+    width: 700px;
+    margin: auto;
+}
+
+.inner-content {
+    background-color: white;
+    padding: 1em;
+}
+
+
+h1 {
+    color: black;
+}
+
+.connecting {
+    font-style: italic;
+}
+
+.preview {
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border: 5px solid black;
+    border-radius: 5px;
+}
+
+.preview .key {
+    font-size: 100px;
+    opacity: 0.0;
+}
+
+.animate {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 2s;
+        -webkit-animation-iteration-count: 1;
+}
+
+.left-bar {
+    width: 300px;
+    float: left;
+}
+
+aside {
+    font-size: 8pt;
+    float: right;
+    width: 200px;
+}
+
+
+.options label {
+    display: block;
+}
+
+@-webkit-keyframes fade {
+    30% {
+        opacity: 1.0;
+    }
+}
+
+
+.clearfix {
+    overflow: auto;
+}
+
