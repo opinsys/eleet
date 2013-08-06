@@ -1,43 +1,19 @@
 
+var gui = require("nw.gui");
 var bindKeys = require("./bindkeys");
 var bindPreview = require("./bindpreview");
 var bindOptions = require("./bindoptions");
 var spawn = require("./pipespawn");
 var Leap = require("leapjs");
 var SimpleSwipes = require("./simpleswipes");
-var gui = require("nw.gui");
 var regexpevent = require("./regexpevent");
+var tray = require("./tray");
 
+var Window = gui.Window.get();
 var controller = new Leap.Controller({ enableGestures: true });
 var ss = new SimpleSwipes(controller);
 var d = window.document;
 var connectMsg = d.querySelector(".connecting");
-
-bindKeys(ss);
-bindPreview(ss);
-bindOptions(ss);
-
-gui.Window.get().showDevTools();
-
-
-[].forEach.call(d.querySelectorAll(".external"), function(el) {
-    el.addEventListener("click", function(e) {
-        e.preventDefault();
-        var item = e.target.dataset.value.split(":");
-        switch (item[0]) {
-            case "spawn":
-                spawn(item[1]);
-                break;
-            case "item":
-                gui.Shell.openItem(item[1]);
-                break;
-            default:
-                gui.Shell.openExternal(e.target.dataset.value);
-        }
-
-    }, false);
-});
-
 
 var leapd = spawn("leapd");
 
@@ -51,15 +27,52 @@ leapd.stream.pipe(regexpevent()
    })
 ).pipe(process.stdout);
 
+function exit() {
+    console.log("Killing leapd and exiting....");
+    leapd.process.kill("SIGKILL");
+    gui.App.quit();
+}
+
+tray(Window, gui, exit);
+bindKeys(ss);
+bindPreview(ss);
+bindOptions(ss);
+
+Window.showDevTools();
+
+
+
+[].forEach.call(d.querySelectorAll(".external"), function(el) {
+    el.addEventListener("click", function(e) {
+        e.preventDefault();
+        var item = e.target.href.split(":");
+        switch (item[0]) {
+            case "spawn":
+                spawn(item[1]);
+                break;
+            case "item":
+                gui.Shell.openItem(item[1]);
+                break;
+            default:
+                gui.Shell.openExternal(e.target.href);
+        }
+
+    }, false);
+});
+
+
+
+
+
+
 controller.on("connect", function() {
     console.log("Connected to leapd websocker server");
-    connectMsg.innerText = "Palvelin löydetty! Etsitään laitetta...";
 });
 
 // Give some time for leapd to start
 setTimeout(function() {
+    console.log("Connecting...");
     controller.connect();
-    connectMsg.innerText = "Yhdistetään...";
     console.log("\nWaiting for device to connect...");
 }, 1000);
 
