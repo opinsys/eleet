@@ -25,6 +25,8 @@ leapd.stream.pipe(regexpevent()
     .onRegExp(/Leap Motion Controller detected: +(.+)$/mg, function(match) {
         connectMsg.innerText = "Laite " + match[1] + " löydetty!";
         controller.removeAllListeners("connect");
+        spawn("notify-send", ["Eleet", "Leap Motion yhdistetty"]);
+
    }).onRegExp(/WebSocket exception: bind: Address already in use/, function() {
         connectMsg.innerText = "Virhe: leapd on jo päällä";
    })
