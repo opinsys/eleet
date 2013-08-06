@@ -40,3 +40,6 @@ install: install-dirs
 	$(INSTALL_DATA) -t $(DESTDIR)/usr/share/icons assets/eleet.png
 	$(INSTALL_PROGRAM) -t $(DESTDIR)$(bindir) bin/eleet
 
+clean:
+	rm -rf node_modules
+	rm -rf *.bin
