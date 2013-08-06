@@ -1,4 +1,5 @@
 
+prefix ?= /usr/local
 exec_prefix = $(prefix)
 bindir = $(exec_prefix)/bin
 datarootdir = $(prefix)/share
@@ -37,7 +38,7 @@ install-dirs:
 install: install-dirs
 	cp -r lib node_modules bin assets *.js *.json *.md *.html $(DESTDIR)/opt/eleet
 	$(INSTALL_DATA) -t $(DESTDIR)$(datarootdir)/applications eleet.desktop
-	$(INSTALL_DATA) -t $(DESTDIR)/usr/share/icons assets/eleet.png
+	$(INSTALL_DATA) -t $(DESTDIR)/usr/share/pixmaps assets/eleet.png
 	$(INSTALL_PROGRAM) -t $(DESTDIR)$(bindir) bin/eleet
 
 clean:
