@@ -35,7 +35,7 @@ install-dirs:
 	mkdir -p $(DESTDIR)/opt/eleet
 
 install: install-dirs
-	cp -r lib node_modules bin *.js *.json *.md *.html $(DESTDIR)/opt/eleet
+	cp -r lib node_modules bin assets *.js *.json *.md *.html $(DESTDIR)/opt/eleet
 	$(INSTALL_DATA) -t $(DESTDIR)$(datarootdir)/applications eleet.desktop
 	$(INSTALL_DATA) -t $(DESTDIR)/usr/share/icons assets/eleet.png
 	$(INSTALL_PROGRAM) -t $(DESTDIR)$(bindir) bin/eleet
