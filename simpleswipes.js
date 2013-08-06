@@ -20,10 +20,12 @@ function SimpleSwipes(controller) {
     this.controller = controller;
     this._swapX = 1;
     this._swapY = 1;
+    this.active = true;
 
     var origEmit = this.emit;
     var pause = false;
     this.emit = function() {
+        if (!this.active) return;
         if (pause) {
             console.log("ignoring", arguments);
             return;
