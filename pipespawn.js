@@ -14,6 +14,8 @@ module.exports = function(cmd, args) {
   p.on("exit", d.resolve);
 
   d.promise.stream = new PassThrough();
+  d.promise.process = p;
+
   p.stdout.pipe(d.promise.stream);
   p.stderr.pipe(d.promise.stream);
 
