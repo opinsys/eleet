@@ -23,6 +23,9 @@ module.exports = function(win, gui, exit) {
             win.show();
             win.restore();
             pause = true;
+
+            // node-webkit emit minimize right after tray click for some
+            // reason.  Workaround it by puttin minimize to pause for a while
             setTimeout(function() {
                 pause = false;
             }, 500);
