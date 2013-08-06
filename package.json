@@ -20,7 +20,8 @@
     "max_height": 600
   },
   "dependencies": {
-    "leapjs": "0.2.0"
+    "leapjs": "0.2.0",
+    "q": "~0.9.6"
   },
   "devDependencies": {
     "nw-gyp": "~0.7.3-4"
