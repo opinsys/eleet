@@ -1,6 +1,6 @@
 
 html {
-    font-family: Arial;
+    font-family: Helvetica;
     background-color: #e7e4d0;
 }
 
@@ -17,7 +17,9 @@ html {
 
 
 h1 {
-    color: black;
+    color: #41786b;
+    font-size: 40pt;
+    margin: 0.2em;
 }
 
 .connecting {
@@ -48,6 +50,16 @@ h1 {
     width: 300px;
     float: left;
 }
+
+.left-bar ul {
+    list-style: none;
+}
+
+.left-bar button {
+    width: 200px;
+    height: 50px;
+}
+
 
 aside {
     font-size: 8pt;
