@@ -27,7 +27,7 @@ function SimpleSwipes(controller) {
     this.emit = function() {
         if (!this.active) return;
         if (pause) {
-            console.log("ignoring", arguments);
+            console.log("IGNORE: Too soon", arguments);
             return;
         }
         origEmit.apply(this, arguments);
@@ -77,6 +77,14 @@ SimpleSwipes.prototype.handleSwipe = function(gesture) {
     }
 
     if (gesture.state === "start" && !this.start) {
+
+        // if (gesture.position[2] > 100) {
+        //     console.log("IGNORE: start too far!" + gesture.position[2]);
+        //     return;
+        // }
+
+        console.log("starting from " + gesture.position[2]);
+
         this.start = gesture;
         this.stopWaiter = setTimeout(function() {
             console.warn("ending with update");
