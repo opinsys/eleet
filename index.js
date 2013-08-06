@@ -1,19 +1,22 @@
 
 var gui = require("nw.gui");
-var bindKeys = require("./bindkeys");
-var bindPreview = require("./bindpreview");
-var bindOptions = require("./bindoptions");
-var spawn = require("./pipespawn");
-var Leap = require("leapjs");
-var SimpleSwipes = require("./simpleswipes");
-var regexpevent = require("./regexpevent");
-var tray = require("./tray");
-
 var Window = gui.Window.get();
+Window.showDevTools();
+var Leap = require("leapjs");
+
+var bindKeys = require("./lib/bindkeys");
+var bindPreview = require("./lib/bindpreview");
+var bindOptions = require("./lib/bindoptions");
+var spawn = require("./lib/pipespawn");
+var SimpleSwipes = require("./lib/simpleswipes");
+var regexpevent = require("./lib/regexpevent");
+var tray = require("./lib/tray");
+
 var controller = new Leap.Controller({ enableGestures: true });
 var ss = new SimpleSwipes(controller);
 var d = window.document;
 var connectMsg = d.querySelector(".connecting");
+
 
 var leapd = spawn("leapd");
 
