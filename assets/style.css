@@ -1,7 +1,10 @@
 
 html {
     font-family: Helvetica;
-    background-color: #e7e4d0;
+}
+
+a, a:visited {
+    color: #ed7113;
 }
 
 
@@ -11,13 +14,12 @@ html {
 }
 
 .inner-content {
-    background-color: white;
     padding: 1em;
 }
 
 
 h1 {
-    color: #41786b;
+    color: black;
     font-size: 40pt;
     margin: 0.2em;
 }
@@ -38,16 +40,17 @@ h1 {
 .preview .key {
     font-size: 100px;
     opacity: 0.0;
+    color: #ed7113;
 }
 
 .animate {
-        -webkit-animation-name: fade;
-        -webkit-animation-duration: 2s;
-        -webkit-animation-iteration-count: 1;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: 1;
 }
 
 .left-bar {
-    width: 300px;
+    width: 450px;
     float: left;
 }
 
@@ -55,11 +58,18 @@ h1 {
     list-style: none;
 }
 
-.left-bar button {
+.left-bar ul button {
     width: 200px;
     height: 50px;
 }
 
+article {
+    line-height: 2em;
+}
+
+fieldset {
+    padding: 1.4em;
+}
 
 aside {
     font-size: 8pt;
@@ -70,6 +80,10 @@ aside {
 
 .options label {
     display: block;
+}
+
+.options label input {
+    vertical-align: middle;
 }
 
 @-webkit-keyframes fade {
