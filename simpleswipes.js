@@ -2,7 +2,7 @@ var util = require("util");
 var EventEmitter = require("events").EventEmitter;
 
 function isSmall(i) {
-    return Math.abs(i) < 10;
+    return Math.abs(i) < 5;
 }
 
 /**
@@ -81,17 +81,15 @@ SimpleSwipes.prototype.handleSwipe = function(gesture) {
         this.stopWaiter = setTimeout(function() {
             console.warn("ending with update");
             this.handleSwipeStop(this.lastUpdate);
+        }.bind(this), 100);
 
-        }.bind(this), 1000);
-
-        return;
     }
 
-    if (!this.start) return;
+    // if (!this.start) return;
 
-    if (gesture.state === "stop" && this.start.id === gesture.id) {
-        this.handleSwipeStop(gesture);
-    }
+    // if (gesture.state === "stop" && this.start.id === gesture.id) {
+    //     this.handleSwipeStop(gesture);
+    // }
 
 };
 
