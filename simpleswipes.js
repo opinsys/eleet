@@ -25,7 +25,10 @@ function SimpleSwipes(controller) {
     var origEmit = this.emit;
     var pause = false;
     this.emit = function() {
-        if (!this.active) return;
+        if (!this.active) {
+            console.log("IGNORE: Not active");
+            return;
+        }
         if (pause) {
             console.log("IGNORE: Too soon", arguments);
             return;
