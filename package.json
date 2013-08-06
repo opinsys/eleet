@@ -6,6 +6,7 @@
   "keywords": [
     "node-webkit"
   ],
+  "single-instance": true,
   "window": {
     "title": "Leap Motion",
     "icon": "assets/eleet.png",
