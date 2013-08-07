@@ -66,7 +66,7 @@ h1 {
 }
 
 article {
-    line-height: 2em;
+    line-height: 2.5em;
 }
 
 fieldset {
@@ -74,6 +74,7 @@ fieldset {
 }
 
 aside {
+    line-height: 2em;
     font-size: 8pt;
     float: right;
     width: 200px;
