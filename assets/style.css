@@ -1,6 +1,7 @@
 
 html {
-    font-family: Helvetica;
+    font-family: Ubuntu, Helvetica;
+    font-size: 10pt;
     overflow: hidden;
 }
 
