@@ -1,6 +1,5 @@
 
-
-<img src="https://raw.github.com/opinsys/eleet/master/assets/icon.png" height=100>
+<img src="https://raw.github.com/opinsys/eleet/master/assets/eleet.png" height=100>
 
 # Eleet
 
